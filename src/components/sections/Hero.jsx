@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
@@ -36,68 +37,62 @@ export default function Hero() {
             {/* Ambient Background Glow */}
             <div className="absolute top-1/4 right-10 w-96 h-96 rounded-full bg-[#ECFDF5] blur-3xl opacity-80 -z-10 pointer-events-none" />
 
-            {/* TOP HEADER ROW: ENLARGED NAME (INCREASED MOBILE FONT SIZE) */}
+            {/* TOP HEADER ROW: SADIA KHAN */}
             <motion.div
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.7 }}
-                className="w-full z-10 pt-6 sm:pt-10"
+                className="w-full z-10 pt-4 sm:pt-6"
             >
-                <span className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif font-black text-[#047857] tracking-tight">
+                <span className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-serif font-black text-[#047857] tracking-tight">
                     Sadia Khan
                 </span>
             </motion.div>
 
-            {/* MAIN CONTENT GRID: HEADLINE + CROSSHAIR WITH ARROW & BIO */}
+            {/* MAIN CONTENT GRID */}
             <div className="my-auto py-2 z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
 
-                {/* LEFT: EDITORIAL HEADLINE (INCREASED MOBILE FONT SIZE) */}
+                {/* LEFT: EDITORIAL HEADLINE (POSITIONED PRECISELY IN HIGHLIGHTED REGION) */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.8, ease: "easeOut" }}
-                    className="lg:col-span-6 space-y-0 pb-12 lg:pb-40"
+                    className="lg:col-span-6 space-y-0 pb-0 -translate-y-8 sm:-translate-y-16 lg:-translate-y-28"
                 >
-                    <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[6.25rem] font-black tracking-light text-[#1C1917] font-sans uppercase leading-[0.9] select-none">
+                    <h1 className="text-5xl sm:text-6xl md:text-6xl lg:text-7xl xl:text-[4.75rem] font-black tracking-light text-[#1C1917] font-sans uppercase leading-[0.9] select-none">
                         SOFTWARE <span className='text-[#047857]'>&</span>
                     </h1>
-                    <h1 className="text-5xl ml-2 sm:ml-4 sm:text-6xl md:text-7xl lg:text-8xl xl:text-[6.25rem] font-black tracking-light text-[#1C1917] font-sans uppercase leading-[1.05] select-none">
+                    <h1 className="text-5xl ml-2 sm:ml-4 sm:text-6xl md:text-6xl lg:text-7xl xl:text-[4.75rem] font-black tracking-light text-[#1C1917] font-sans uppercase leading-[1.05] select-none">
                         AI ENGINEER
                     </h1>
                 </motion.div>
 
                 {/* RIGHT: INTEGRATED GEOMETRIC CROSSHAIR GRID */}
-                {/* RIGHT: INTEGRATED GEOMETRIC CROSSHAIR GRID */}
                 <motion.div
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.9 }}
-                    className="lg:col-span-6 relative pt-6 pl-4 sm:pl-6"
+                    className="lg:col-span-6 relative pt-2 pl-4 sm:pl-6"
                 >
-                    {/* Horizontal Line: Extends Leftwards towards the headline */}
+                    {/* Horizontal Line */}
                     <div className="absolute top-0 -left-16 sm:-left-32 right-0 h-[1px] bg-stone-300" />
 
-                    {/* Vertical Line: Extends UPWARDS into the space next to the headline */}
-                    <div className="absolute -top-28 sm:-top-44 bottom-0 left-0 w-[1px] bg-stone-300" />
+                    {/* Vertical Line */}
+                    <div className="absolute -top-28 lg:-top-44 bottom-0 left-0 w-[1px] bg-stone-300" />
 
-                    {/* 4-Point Star Flare Node centered exactly at Intersection */}
+                    {/* 4-Point Star Flare Node */}
                     <div className="absolute top-0 left-0 -translate-x-1/2 -translate-y-1/2 z-10 text-[#047857]">
                         <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
                             <path d="M12 0C12 6.627 6.627 12 0 12C6.627 12 12 17.373 12 24C12 17.373 17.373 12 24 12C17.373 12 12 6.627 12 0Z" />
                         </svg>
                     </div>
 
-                    {/* ARROW BUTTON: bottom-right corner on mobile, crosshair-notch on lg+ */}
-                    {/* ARROW BUTTON: bottom-right corner on mobile, crosshair-notch on lg+ */}
+                    {/* ARROW BUTTON */}
                     <div className="absolute -bottom-4 right-0 sm:-bottom-8 lg:bottom-auto lg:top-4 lg:right-[100%] lg:pr-6 flex items-center gap-3 shrink-0">
                         <button
                             onClick={scrollToAbout}
                             aria-label="Scroll to About Section"
-                            className="group relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full 
-                   bg-white/50 backdrop-blur-md border border-white/70
-                   shadow-[0_4px_16px_rgba(4,120,87,0.2),inset_0_1px_1px_rgba(255,255,255,0.9)]
-                   hover:border-[#047857]/60 hover:bg-[#047857]/90 hover:text-white 
-                   transition-colors duration-300 cursor-pointer active:scale-95 shrink-0 overflow-hidden"
+                            className="group relative w-12 h-12 sm:w-14 sm:h-14 flex items-center justify-center rounded-full bg-white/50 backdrop-blur-md border border-white/70 shadow-[0_4px_16px_rgba(4,120,87,0.2),inset_0_1px_1px_rgba(255,255,255,0.9)] hover:border-[#047857]/60 hover:bg-[#047857]/90 hover:text-white transition-colors duration-300 cursor-pointer active:scale-95 shrink-0 overflow-hidden"
                         >
                             <motion.span
                                 aria-hidden="true"

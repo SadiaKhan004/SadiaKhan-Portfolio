@@ -6,7 +6,8 @@ import { ArrowDownRight } from 'lucide-react';
 export default function About() {
     return (
         <section id="about" className="relative w-full py-20 sm:py-32 bg-[#FAFAF9] text-[#1C1917]">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* CONSTRAINED DESKTOP CONTAINER (max-w-5xl keeps laptop screens perfectly centered) */}
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* 1. HEADING: "About ↘" */}
                 <motion.div
@@ -19,24 +20,23 @@ export default function About() {
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#1C1917] font-sans">
                         About
                     </h2>
-                    {/* <ArrowDownRight className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#047857] stroke-[2.5] translate-y-1" /> */}
-                    {/* Add this once in your global CSS or a <style> tag in this component */}
+
                     <style>{`
-  @keyframes arrow-shimmer-sweep {
-    0%   { mask-position: -150% 0; -webkit-mask-position: -150% 0; }
-    60%  { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
-    100% { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
-  }
-  .arrow-shimmer {
-    mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
-    -webkit-mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
-    mask-size: 300% 100%;
-    -webkit-mask-size: 300% 100%;
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-    animation: arrow-shimmer-sweep 2.6s ease-in-out infinite;
-  }
-`}</style>
+                        @keyframes arrow-shimmer-sweep {
+                            0%   { mask-position: -150% 0; -webkit-mask-position: -150% 0; }
+                            60%  { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
+                            100% { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
+                        }
+                        .arrow-shimmer {
+                            mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
+                            -webkit-mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
+                            mask-size: 300% 100%;
+                            -webkit-mask-size: 300% 100%;
+                            mask-repeat: no-repeat;
+                            -webkit-mask-repeat: no-repeat;
+                            animation: arrow-shimmer-sweep 2.6s ease-in-out infinite;
+                        }
+                    `}</style>
 
                     <motion.div
                         className="relative inline-flex"
@@ -52,7 +52,7 @@ export default function About() {
                         {/* Base arrow, solid color */}
                         <ArrowDownRight className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#047857] stroke-[2.5] translate-y-1" />
 
-                        {/* Shimmer overlay — same icon, brighter color, masked to a moving diagonal band */}
+                        {/* Shimmer overlay */}
                         <ArrowDownRight
                             className="arrow-shimmer absolute inset-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#6EE7B7] stroke-[2.5] translate-y-1"
                         />
@@ -63,9 +63,9 @@ export default function About() {
                 <div className="w-full h-[1px] bg-stone-300 my-8 sm:my-12" />
 
                 {/* 3. SPACIOUS & UNCLUTTERED LAYOUT */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 pt-4">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 pt-2">
 
-                    {/* LEFT COLUMN: QUIET ANCHOR LABEL (MINIMAL) */}
+                    {/* LEFT COLUMN: QUIET ANCHOR LABEL */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -101,8 +101,10 @@ export default function About() {
                         </p>
 
                         <p>
-                            Building something intelligent?
-                            <a href="#contact" class="contact-link text-[#047857]">Let's connect </a>
+                            Building something intelligent?{' '}
+                            <a href="#contact" className="contact-link text-[#047857] font-medium hover:underline">
+                                Let's connect
+                            </a>{' '}
                             and bring it to life!
                         </p>
                     </motion.div>

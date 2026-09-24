@@ -1,8 +1,9 @@
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowDownRight, ArrowUpRight, Plus, Minus } from 'lucide-react';
-// import { projectsList } from '../config/site';
 import { projectsList } from '../../config/site';
+
 export default function Projects() {
     // Single open accordion state (or null if all closed)
     const [expandedId, setExpandedId] = useState('hive');
@@ -14,7 +15,8 @@ export default function Projects() {
     return (
         <section id="projects" className="relative w-full py-20 sm:py-28 bg-[#FAFAF9] text-[#1C1917] overflow-hidden">
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* CONSTRAINED DESKTOP CONTAINER (max-w-5xl matches About, Skills & Experience) */}
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* 1. SECTION HEADING: "Projects ↘" */}
                 <motion.div
@@ -27,24 +29,23 @@ export default function Projects() {
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#1C1917] font-sans">
                         Projects
                     </h2>
-                    {/* <ArrowDownRight className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#047857] stroke-[2.5] translate-y-1" /> */}
-                    {/* Add this once in your global CSS or a <style> tag in this component */}
+
                     <style>{`
-  @keyframes arrow-shimmer-sweep {
-    0%   { mask-position: -150% 0; -webkit-mask-position: -150% 0; }
-    60%  { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
-    100% { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
-  }
-  .arrow-shimmer {
-    mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
-    -webkit-mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
-    mask-size: 300% 100%;
-    -webkit-mask-size: 300% 100%;
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-    animation: arrow-shimmer-sweep 2.6s ease-in-out infinite;
-  }
-`}</style>
+                        @keyframes arrow-shimmer-sweep {
+                            0%   { mask-position: -150% 0; -webkit-mask-position: -150% 0; }
+                            60%  { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
+                            100% { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
+                        }
+                        .arrow-shimmer {
+                            mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
+                            -webkit-mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
+                            mask-size: 300% 100%;
+                            -webkit-mask-size: 300% 100%;
+                            mask-repeat: no-repeat;
+                            -webkit-mask-repeat: no-repeat;
+                            animation: arrow-shimmer-sweep 2.6s ease-in-out infinite;
+                        }
+                    `}</style>
 
                     <motion.div
                         className="relative inline-flex"
@@ -60,17 +61,14 @@ export default function Projects() {
                         {/* Base arrow, solid color */}
                         <ArrowDownRight className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#047857] stroke-[2.5] translate-y-1" />
 
-                        {/* Shimmer overlay — same icon, brighter color, masked to a moving diagonal band */}
+                        {/* Shimmer overlay */}
                         <ArrowDownRight
                             className="arrow-shimmer absolute inset-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#6EE7B7] stroke-[2.5] translate-y-1"
                         />
                     </motion.div>
                 </motion.div>
 
-                {/* 2. TOP HORIZONTAL DIVIDER LINE */}
-                {/* <div className="w-full h-[1px] bg-stone-300 my-8 sm:my-10" /> */}
-
-                {/* 3. ACCORDION LIST CONTAINER */}
+                {/* 2. ACCORDION LIST CONTAINER */}
                 <div className="border-t border-b border-stone-300 divide-y divide-stone-300 mt-10">
                     {projectsList.map((project) => {
                         const isExpanded = expandedId === project.id;
@@ -104,24 +102,13 @@ export default function Projects() {
                                         </div>
 
                                         {/* Toggle Icon Button (+ / -) */}
-                                        {/* <button
-                                            aria-label="Toggle Project Details"
-                                            className="p-2 sm:p-2.5 rounded-full border border-stone-300 bg-white text-[#1C1917] group-hover:border-[#047857] group-hover:text-[#047857] group-hover:bg-[#ECFDF5] transition-all duration-200"
-                                        >
-                                            {isExpanded ? (
-                                                <Minus className="w-5 h-5 stroke-[2]" />
-                                            ) : (
-                                                <Plus className="w-5 h-5 stroke-[2]" />
-                                            )}
-                                        </button> */}
-                                        {/* Toggle Icon Button (+ / -) */}
                                         <button
                                             aria-label="Toggle Project Details"
                                             className="relative p-2 sm:p-2.5 rounded-full 
-               bg-white border border-stone-300
-               text-[#1C1917] 
-               group-hover:border-[#047857] group-hover:text-[#047857] group-hover:bg-[#ECFDF5]
-               transition-all duration-200"
+                                                       bg-white border border-stone-300
+                                                       text-[#1C1917] 
+                                                       group-hover:border-[#047857] group-hover:text-[#047857] group-hover:bg-[#ECFDF5]
+                                                       transition-all duration-200"
                                         >
                                             {/* Continuous pulsing glow ring */}
                                             <motion.span
@@ -168,13 +155,6 @@ export default function Projects() {
                                                 {/* LEFT COLUMN: NARRATIVE & DETAILS */}
                                                 <div className="lg:col-span-7 space-y-6">
 
-                                                    {/* Period Badge
-                                                    <div className="flex items-center gap-3 text-xs font-mono font-bold text-[#047857]">
-                                                        <span className="px-3 py-1 rounded-full bg-[#ECFDF5] border border-[#A7F3D0]">
-                                                            {project.period}
-                                                        </span>
-                                                    </div> */}
-
                                                     {/* Overview Paragraph */}
                                                     <p className="text-base sm:text-lg text-stone-800 leading-relaxed font-normal">
                                                         {project.overview}
@@ -217,17 +197,6 @@ export default function Projects() {
 
                                                 </div>
 
-                                                {/* RIGHT COLUMN: PREVIEW MOCKUP CARD */}
-                                                {/* <div className="lg:col-span-5">
-                                                    <div className="relative aspect-[16/10] w-full rounded-2xl overflow-hidden bg-stone-200 border border-stone-300 shadow-md group-hover:border-[#047857] transition-all">
-                                                        <img
-                                                            src={project.image}
-                                                            alt={project.title}
-                                                            className="w-full h-full object-cover object-center"
-                                                        />
-                                                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
-                                                    </div>
-                                                </div> */}
                                                 {/* RIGHT COLUMN: BROWSER-FRAMED PREVIEW CARD */}
                                                 <div className="lg:col-span-5">
                                                     <div className="rounded-2xl overflow-hidden border border-stone-300 shadow-md group-hover:border-[#047857] transition-all bg-white">

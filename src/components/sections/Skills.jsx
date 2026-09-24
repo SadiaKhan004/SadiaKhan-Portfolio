@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowDownRight } from 'lucide-react';
@@ -203,7 +204,8 @@ export default function Skills() {
             {/* Background Ambient Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[#ECFDF5] blur-3xl opacity-60 -z-10 pointer-events-none" />
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* CONSTRAINED DESKTOP CONTAINER (max-w-5xl matches About section) */}
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
                 {/* 1. HEADING: "Skills ↘" */}
                 <motion.div
@@ -216,24 +218,23 @@ export default function Skills() {
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#1C1917] font-sans">
                         Skills
                     </h2>
-                    {/* <ArrowDownRight className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#047857] stroke-[2.5] translate-y-1" /> */}
-                    {/* Add this once in your global CSS or a <style> tag in this component */}
+
                     <style>{`
-  @keyframes arrow-shimmer-sweep {
-    0%   { mask-position: -150% 0; -webkit-mask-position: -150% 0; }
-    60%  { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
-    100% { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
-  }
-  .arrow-shimmer {
-    mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
-    -webkit-mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
-    mask-size: 300% 100%;
-    -webkit-mask-size: 300% 100%;
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-    animation: arrow-shimmer-sweep 2.6s ease-in-out infinite;
-  }
-`}</style>
+                        @keyframes arrow-shimmer-sweep {
+                            0%   { mask-position: -150% 0; -webkit-mask-position: -150% 0; }
+                            60%  { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
+                            100% { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
+                        }
+                        .arrow-shimmer {
+                            mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
+                            -webkit-mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
+                            mask-size: 300% 100%;
+                            -webkit-mask-size: 300% 100%;
+                            mask-repeat: no-repeat;
+                            -webkit-mask-repeat: no-repeat;
+                            animation: arrow-shimmer-sweep 2.6s ease-in-out infinite;
+                        }
+                    `}</style>
 
                     <motion.div
                         className="relative inline-flex"
@@ -249,7 +250,7 @@ export default function Skills() {
                         {/* Base arrow, solid color */}
                         <ArrowDownRight className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#047857] stroke-[2.5] translate-y-1" />
 
-                        {/* Shimmer overlay — same icon, brighter color, masked to a moving diagonal band */}
+                        {/* Shimmer overlay */}
                         <ArrowDownRight
                             className="arrow-shimmer absolute inset-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#6EE7B7] stroke-[2.5] translate-y-1"
                         />
@@ -259,8 +260,8 @@ export default function Skills() {
                 {/* 2. HORIZONTAL DIVIDER LINE */}
                 <div className="w-full h-[1px] bg-stone-300 my-8 sm:my-10" />
 
-                {/* 3. CATEGORY FILTER TABS (TEXT + ARROW EQUAL TO TEXT WIDTH) */}
-                <div className="flex flex-wrap items-center justify-start gap-8 sm:gap-12 md:gap-16 mb-12">
+                {/* 3. CATEGORY FILTER TABS */}
+                <div className="flex flex-wrap items-center justify-start gap-8 sm:gap-10 md:gap-12 mb-10">
                     {filterTabs.map((tab) => {
                         const isActive = activeTab === tab.id;
                         return (
@@ -269,13 +270,11 @@ export default function Skills() {
                                 onClick={() => setActiveTab(tab.id)}
                                 className="group inline-flex flex-col items-start focus:outline-none cursor-pointer"
                             >
-                                {/* Uppercase Label */}
                                 <span className={`text-xs sm:text-sm font-extrabold tracking-widest uppercase font-mono transition-colors duration-200 ${isActive ? 'text-[#047857]' : 'text-stone-700 group-hover:text-[#047857]'
                                     }`}>
                                     {tab.label}
                                 </span>
 
-                                {/* Arrow Spanning 100% Text Width */}
                                 <div className="w-full flex items-center pt-1.5">
                                     <div className={`h-[1.5px] w-full transition-colors duration-200 ${isActive ? 'bg-[#1C1917]' : 'bg-stone-300 group-hover:bg-[#1C1917]'
                                         }`} />
@@ -300,7 +299,7 @@ export default function Skills() {
                 {/* 4. DARK TILE SKILL GRID */}
                 <motion.div
                     layout
-                    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6"
+                    className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-4 sm:gap-5"
                 >
                     <AnimatePresence>
                         {filteredSkills.map((skill, index) => (
@@ -311,7 +310,7 @@ export default function Skills() {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 transition={{ duration: 0.3, delay: index * 0.03 }}
-                                className="group relative flex flex-col items-center justify-center p-6 sm:p-8 rounded-2xl bg-[#1C1917] text-white border border-stone-800 hover:border-[#047857] hover:shadow-[0_0_25px_rgba(4,120,87,0.25)] transition-all duration-300 min-h-[150px] sm:min-h-[170px]"
+                                className="group relative flex flex-col items-center justify-center p-6 sm:p-8 rounded-2xl bg-[#1C1917] text-white border border-stone-800 hover:border-[#047857] hover:shadow-[0_0_25px_rgba(4,120,87,0.25)] transition-all duration-300 min-h-[140px] sm:min-h-[160px]"
                             >
                                 {/* Top Glow Accent on Hover */}
                                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-[#047857] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />

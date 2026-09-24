@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { ArrowDownRight } from 'lucide-react';
@@ -19,7 +20,8 @@ export default function Experience() {
     return (
         <section id="experience" className="relative w-full py-20 sm:py-28 bg-[#FAFAF9] text-[#1C1917] overflow-hidden">
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            {/* CONSTRAINED DESKTOP CONTAINER (max-w-5xl matches About and Skills sections) */}
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
 
                 {/* 1. HEADING: "Experience ↘" */}
                 <motion.div
@@ -32,24 +34,23 @@ export default function Experience() {
                     <h2 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight text-[#1C1917] font-sans">
                         Experience
                     </h2>
-                    {/* <ArrowDownRight className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#047857] stroke-[2.5] translate-y-1" /> */}
-                    {/* Add this once in your global CSS or a <style> tag in this component */}
+
                     <style>{`
-  @keyframes arrow-shimmer-sweep {
-    0%   { mask-position: -150% 0; -webkit-mask-position: -150% 0; }
-    60%  { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
-    100% { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
-  }
-  .arrow-shimmer {
-    mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
-    -webkit-mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
-    mask-size: 300% 100%;
-    -webkit-mask-size: 300% 100%;
-    mask-repeat: no-repeat;
-    -webkit-mask-repeat: no-repeat;
-    animation: arrow-shimmer-sweep 2.6s ease-in-out infinite;
-  }
-`}</style>
+                        @keyframes arrow-shimmer-sweep {
+                            0%   { mask-position: -150% 0; -webkit-mask-position: -150% 0; }
+                            60%  { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
+                            100% { mask-position: 150% 0; -webkit-mask-position: 150% 0; }
+                        }
+                        .arrow-shimmer {
+                            mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
+                            -webkit-mask-image: linear-gradient(115deg, transparent 35%, rgba(255,255,255,0.9) 48%, rgba(255,255,255,0.9) 52%, transparent 65%);
+                            mask-size: 300% 100%;
+                            -webkit-mask-size: 300% 100%;
+                            mask-repeat: no-repeat;
+                            -webkit-mask-repeat: no-repeat;
+                            animation: arrow-shimmer-sweep 2.6s ease-in-out infinite;
+                        }
+                    `}</style>
 
                     <motion.div
                         className="relative inline-flex"
@@ -65,7 +66,7 @@ export default function Experience() {
                         {/* Base arrow, solid color */}
                         <ArrowDownRight className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#047857] stroke-[2.5] translate-y-1" />
 
-                        {/* Shimmer overlay — same icon, brighter color, masked to a moving diagonal band */}
+                        {/* Shimmer overlay */}
                         <ArrowDownRight
                             className="arrow-shimmer absolute inset-0 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-[#6EE7B7] stroke-[2.5] translate-y-1"
                         />
@@ -75,10 +76,10 @@ export default function Experience() {
                 {/* 2. HORIZONTAL DIVIDER LINE */}
                 <div className="w-full h-[1px] bg-stone-300 my-8 sm:my-10" />
 
-                {/* 3. CENTERED SINUSOIDAL WAVE (2 ENDPOINTS, 2 EXPERIENCES) */}
+                {/* 3. CENTERED SINUSOIDAL WAVE */}
                 <div className="relative mt-16 sm:mt-24">
 
-                    {/* DEEP SINUSOIDAL WAVE SVG WITH TWO ENDS (DESKTOP) */}
+                    {/* DEEP SINUSOIDAL WAVE SVG (DESKTOP / LAPTOP) */}
                     <div className="hidden md:block absolute top-0 bottom-0 left-1/2 -translate-x-1/2 w-64 h-full pointer-events-none -z-0">
                         <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 200 300">
                             <path
@@ -110,7 +111,7 @@ export default function Experience() {
                                     className="relative flex flex-col md:flex-row items-center w-full"
                                 >
                                     {/* UNBOXED CONTENT BLOCK */}
-                                    <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${isEven ? 'md:pr-16 md:text-right' : 'md:order-2 md:pl-16 md:text-left'}`}>
+                                    <div className={`w-full md:w-1/2 pl-12 md:pl-0 ${isEven ? 'md:pr-12 lg:pr-16 md:text-right' : 'md:order-2 md:pl-12 lg:pl-16 md:text-left'}`}>
                                         <div className="space-y-2">
                                             <h3 className="text-xl sm:text-2xl font-extrabold text-[#1C1917] font-sans tracking-tight">
                                                 {exp.role}
@@ -125,11 +126,6 @@ export default function Experience() {
                                             </p>
                                         </div>
                                     </div>
-
-                                    {/* CENTER NODE AT THE CURVE ENDPOINT */}
-                                    {/* <div className="absolute left-4 md:left-1/2 -translate-x-1/2 top-2 md:top-1/2 md:-translate-y-1/2 w-5 h-5 rounded-full bg-[#FAFAF9] border-2 border-[#047857] flex items-center justify-center z-10 shadow-xs">
-                                        <div className="w-2 h-2 rounded-full bg-[#047857]" />
-                                    </div> */}
 
                                     {/* EMPTY SPACER FOR ALTERNATING DESKTOP GRID */}
                                     <div className={`hidden md:block w-1/2 ${isEven ? 'order-2' : 'order-1'}`} />

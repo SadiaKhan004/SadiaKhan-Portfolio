@@ -6,11 +6,13 @@ import { site } from '../../config/site';
 export default function Contact() {
     return (
         <section id="contact" className="relative w-full py-24 sm:py-36 bg-[#FAFAF9] text-[#1C1917] overflow-hidden">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-end">
+            {/* CONSTRAINED DESKTOP CONTAINER (max-w-5xl matches all previous sections) */}
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
-                    {/* LEFT COLUMN: EXACT EDITORIAL TYPOGRAPHY MATCH */}
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-12 items-end">
+
+                    {/* LEFT COLUMN: EDITORIAL TYPOGRAPHY BALANCED FOR LAPTOP SCREENS */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -19,7 +21,7 @@ export default function Contact() {
                         className="lg:col-span-7 flex flex-col justify-between"
                     >
                         <div className="inline-block max-w-max">
-                            <h2 className="text-6xl sm:text-8xl md:text-[7rem] lg:text-[7.5rem] font-serif font-normal text-[#1C1917] tracking-tight leading-[0.88] select-none">
+                            <h2 className="text-6xl sm:text-8xl md:text-[7rem] lg:text-[5.75rem] xl:text-[6.25rem] font-serif font-normal text-[#1C1917] tracking-tight leading-[0.88] select-none">
                                 Let's<br />
                                 Get<br />
                                 <span className="italic font-serif">in</span><br />
@@ -85,7 +87,7 @@ export default function Contact() {
                             </a>
                         </div>
 
-                        {/* 3. Closing line */}
+                        {/* 3. CLOSING LINE */}
                         <div className="pt-2">
                             <h3 className="text-3xl sm:text-4xl font-serif text-[#1C1917]">
                                 Get in touch
