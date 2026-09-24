@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowDown } from 'lucide-react';
 
 export default function Hero() {
-    const bioText = "I build intelligent agentic systems, full-stack web applications, and Explainable AI models that transform complex technical challenges into seamless digital experiences.";
+    const bioText = "I build intelligent multi-agent systems, cloud serverless backends, and Generative AI applications that transform complex technical challenges into seamless digital experiences.";
 
     const scrollToAbout = () => {
         const aboutSection = document.getElementById('about');
